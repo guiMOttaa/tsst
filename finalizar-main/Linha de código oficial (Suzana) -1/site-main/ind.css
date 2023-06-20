@@ -1,0 +1,133 @@
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--bkq: clamp(1.38rem, calc(0.94rem + 1.67vw), 1.88rem);
+	--shr: clamp(1.13rem, calc(1.03rem + 0.4vw), 1.25rem);
+	--hdr: clamp(2.8rem, calc(1.99rem + 3.25vw), 3.82rem);
+	--lite-blue: #48cae4;
+	--white: #faf9f9;
+}
+
+body {
+	min-height: 100vh;
+	display: grid;
+	place-items: center;
+	font-family: "Chivo Mono", monospace;
+	font-size: 16px;
+	background-color: var(--white);
+}
+
+h1,
+blockquote {
+	font-family: "Teko", sans-serif;
+	text-transform: uppercase;
+}
+
+p {
+	font-size: 1rem;
+	padding: 1rem 0;
+	line-height: 1.5rem;
+}
+
+a {
+	display: block;
+	text-decoration: none;
+}
+
+.container {
+	padding: 0;
+}
+
+header {
+	height: 400px;
+	padding: 1.5em 1em;
+	background-size: cover;
+	background-position: 50% 50%;
+	display: grid;
+	align-content: center;
+	border-bottom: 5px solid var(--lite-blue);
+}
+header h1 {
+	font-size: var(--hdr);
+	line-height: var(--hdr);
+	color: var(--white);
+	text-align: center;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+header h3 {
+	font-size: var(--shr);
+	line-height: var(--shr);
+	color: var(--white);
+	text-align: center;
+	font-weight: normal;
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+main {
+	width: min(100%, 800px);
+	margin: 2em auto;
+	padding: 1em;
+}
+
+blockquote {
+	width: 50vmin;
+	padding: 1.5em 1em;
+	font-size: var(--bkq);
+	line-height: 1.7rem;
+	float: left;
+	position: relative;
+}
+blockquote:last-of-type {
+	float: right;
+}
+blockquote svg {
+	width: clamp(60px, 10vw, 100px);
+	height: clamp(60px, 10vw, 100px);
+	position: absolute;
+	top: 0;
+	left: 0;
+	isolation: isolate;
+	z-index: -1;
+	opacity: 0.3;
+}
+blockquote svg path {
+	stroke: none;
+	fill: var(--lite-blue);
+}
+blockquote a {
+	color: var(--lite-blue);
+	margin-top: 0.4rem;
+	position: relative;
+	translate: 0.8rem 0;
+}
+blockquote a::before {
+	content: "-";
+	position: absolute;
+	left: -0.8rem;
+}
+main p:first-of-type::first-letter,
+main p:nth-of-type(3)::first-letter,
+main p:last-of-type::first-letter {
+	font-size: var(--hdr);
+	line-height: var(--hdr);
+	padding-right: 0.3rem;
+	margin-bottom: -0.3rem;
+	float: left;
+	font-family: "Chivo Mono", monospace;
+}
+
+@media (max-width: 500px) {
+	.container blockquote {
+		float: none !important;
+		width: 80vmin;
+		padding: 1.3em 0.7em;
+		margin: 0 auto;
+	}
+}
